@@ -46,9 +46,9 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -----------------------
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 2,
-		border_size = 1,
+		gaps_in = 0,
+		gaps_out = 0,
+		border_size = 0,
 		col = {
 			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
 			inactive_border = "rgba(595959aa)",
@@ -142,7 +142,7 @@ hl.device({
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
-local mainMod = "SUPER" 
+local mainMod = "SUPER"
 
 -- Powermenu, Launcher, Terminal, Browser, FileManager
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/rofi/powermenu/type-6/powermenu.sh"))
@@ -154,11 +154,19 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
 -- Unified Applet Binding
 -- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/.config/rofi/applets/bin/sys_applet.sh"))
 -- Unified Applet Binding
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("rofi -show sys -modi 'sys:~/.config/rofi/applets/bin/sys_applet.sh' -theme ~/.config/rofi/applets/type-4/style-1.rasi"))
+hl.bind(
+	mainMod .. " + A",
+	hl.dsp.exec_cmd(
+		"rofi -show sys -modi 'sys:~/.config/rofi/applets/bin/sys_applet.sh' -theme ~/.config/rofi/applets/type-4/style-1.rasi"
+	)
+)
 
 -- Window management
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(
+	mainMod .. " + SHIFT + Q",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
@@ -192,10 +200,26 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Multimedia & Brightness Keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
@@ -223,4 +247,18 @@ hl.window_rule({
 	match = { class = "hyprland-run" },
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+-- Force every standard application window to maximize immediately
+hl.window_rule({
+	name = "fullscreen-all",
+	match = { class = ".*" },
+	fullscreen = 1, -- 1 = maximize (keeps bar visible if any), 2 = true fullscreen
+})
+
+-- Automatically send any new application window to the next empty workspace
+hl.window_rule({
+	name = "open-in-empty-workspace",
+	match = { class = ".*" },
+	workspace = "empty",
 })

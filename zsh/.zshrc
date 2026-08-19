@@ -131,5 +131,7 @@ eval "$(zoxide init zsh)"
 alias ls="eza -l"
 
 export EDITOR="nvim"
+export BROWSER="firefox"
+export PATH="$HOME/go/bin:$HOME/.local/bin:$PATH"
 
 . "$HOME/.local/share/../bin/env"
