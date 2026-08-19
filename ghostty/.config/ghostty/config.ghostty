@@ -1,3 +1,4 @@
 theme = Gruvbox Material
 font-family = "AnonymicePro Nerd Font 8"
 cursor-style = block
+background-opacity = 0.95
