@@ -1,4 +1,4 @@
-PACKAGES = hypr rofi ghostty zsh nvim
+PACKAGES = hypr rofi ghostty zsh nvim test-config
 
 all:
 	stow -v -R -t ~ $(PACKAGES)
