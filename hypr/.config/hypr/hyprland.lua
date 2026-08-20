@@ -250,11 +250,11 @@ hl.window_rule({
 })
 
 -- Force every standard application window to maximize immediately
-hl.window_rule({
-	name = "fullscreen-all",
-	match = { class = ".*" },
-	fullscreen = 1, -- 1 = maximize (keeps bar visible if any), 2 = true fullscreen
-})
+-- hl.window_rule({
+-- 	name = "fullscreen-all",
+-- 	match = { class = ".*" },
+-- 	fullscreen = 1, -- 1 = maximize (keeps bar visible if any), 2 = true fullscreen
+-- })
 
 -- Automatically send any new application window to the next empty workspace
 hl.window_rule({
