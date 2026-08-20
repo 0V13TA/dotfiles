@@ -128,7 +128,8 @@ source <(carapace _carapace)
 eval "$(zoxide init zsh)"
 
 # Aliases
-alias ls="eza -l"
+alias ls="eza -l --group-directories-last"
+alias tree="eza -T"
 
 export EDITOR="nvim"
 export BROWSER="firefox"
