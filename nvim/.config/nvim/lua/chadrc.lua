@@ -2,7 +2,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "oxocarbon",
+  theme = "bearded-arc",
   transparency = true,
   hl_override = {
     Comment = {
