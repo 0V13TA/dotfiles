@@ -135,4 +135,8 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export PATH="$HOME/go/bin:$HOME/.local/bin:$PATH"
 
+export ANDROID_HOME=$HOME/android-sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.3.11579264
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_NDK_HOME
+
 . "$HOME/.local/share/../bin/env"
