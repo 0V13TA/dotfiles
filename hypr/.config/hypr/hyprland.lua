@@ -30,6 +30,7 @@ local browser = "firefox"
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("hyprpaper")
+  -- hl.exec_cmd("./scripts/startup.sh")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
@@ -40,6 +41,7 @@ end)
 -------------------------------
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("WALLPAPER", "/home/ovieta/Pictures/wallpapers/wallhaven-5yd6d5_1600x900.png")
 
 -----------------------
 ---- LOOK AND FEEL ----

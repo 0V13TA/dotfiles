@@ -135,15 +135,11 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export PATH="$HOME/go/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export WALLPAPER="/home/ovieta/Pictures/wallpapers/wallhaven-5yd6d5_1600x900.png"
+# export WALLPAPER="/home/ovieta/Pictures/wallpapers/wallhaven-5yd6d5_1600x900.png"
 
 export ANDROID_HOME=$HOME/android-sdk
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.3.11579264
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_NDK_HOME
 
-# Load wallust terminal sequences
-if [ -f ~/.cache/wallust/sequences ]; then
-    cat ~/.cache/wallust/sequences
-fi
 
 . "$HOME/.local/share/../bin/env"
