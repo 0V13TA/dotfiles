@@ -141,5 +141,6 @@ export ANDROID_HOME=$HOME/android-sdk
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.3.11579264
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_NDK_HOME
 
+wallust run $WALLPAPER >> /dev/null
 
 . "$HOME/.local/share/../bin/env"
