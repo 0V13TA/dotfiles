@@ -2,7 +2,7 @@
 require("nvchad.configs.lspconfig").defaults()
 
 -- Standard web/JS servers
-local servers = { "html", "cssls", "jsonls", "ts_ls", "gopls" }
+local servers = { "html", "cssls", "jsonls", "ts_ls", "gopls", "svelte" }
 vim.lsp.enable(servers)
 
 -- Clangd (C / C++)

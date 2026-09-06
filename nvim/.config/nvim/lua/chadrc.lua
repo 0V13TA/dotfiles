@@ -18,11 +18,11 @@ M.base46 = {
   hl_override = {
     -- Use Wallust foreground/accent colors where desired
     Comment = {
-      fg = wallust.base03 or "#8da3c0",
+      fg = wallust.base05 or "#8da3c0",
       italic = true,
     },
     ["@comment"] = {
-      fg = wallust.base03 or "#8da3c0",
+      fg = wallust.base05 or "#8da3c0",
       italic = true,
     },
     Normal = {
