@@ -21,7 +21,6 @@ hl.monitor({
 -- Set programs that you use
 local terminal = "ghostty"
 local fileManager = "dolphin"
-local menu = "rofi"
 local browser = "firefox"
 
 -------------------
