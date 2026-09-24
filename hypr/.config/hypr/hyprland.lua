@@ -183,7 +183,8 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot"))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard" | cliphist decode | wl-copy'))
+-- hl.bind(mainMod .. " + V", hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard" | cliphist decode | wl-copy'))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd('~/.local/bin/clip-manager.sh'))
 
 -- Workspaces
 for i = 1, 10 do
