@@ -29,6 +29,7 @@ local browser = "firefox"
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("hyprpaper")
+  hl.exec_cmd(terminal)
 	-- hl.exec_cmd("./scripts/startup.sh")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
