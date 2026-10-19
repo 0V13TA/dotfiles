@@ -140,8 +140,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export ANDROID_HOME=$HOME/android-sdk
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/26.3.11579264
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_NDK_HOME
+export ODIN_ANDROID_NDK=$ANDROID_NDK_HOME
 
-wallust run $WALLPAPER >> /dev/null
+export VCPKG_ROOT=/home/ovieta/Applications/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
+
+wallust run $WALLPAPER > /dev/null
 
 function y() {
 	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
